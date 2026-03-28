@@ -400,7 +400,7 @@ const About = () => {
   ];
 
   const details = [
-    { title: "Tools Used", desc: "Beginner in Notion, Slack, Zapier. Intermediate in Canva, Premiere Pro, Capcut, and Google Workspace." },
+    { title: "Tools Used", desc: "Beginner in Notion, Slack, Zapier, GHL. Intermediate in Canva, Premiere Pro, Capcut, and Google Workspace." },
     { title: "Work Style", desc: "Proactive, detail-oriented, and highly communicative." }
   ];
 
