@@ -972,7 +972,8 @@ const Personal = () => {
   };
 
   return (
-    <section id="personal" className="py-24 bg-gradient-to-b from-brand-light to-white relative overflow-hidden">
+    <section id="personal" className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-blue/10 via-transparent to-transparent" />
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -980,10 +981,9 @@ const Personal = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4 block">Personalization</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">A Personal Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">Personal Highlights</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Beyond the professional work, here's a glimpse into my personal creative journey and inspirations.
+            A few moments that reflect my passion, creativity, and growth.
           </p>
         </motion.div>
       </div>
@@ -1034,7 +1034,7 @@ const Personal = () => {
                   duration: 0.8,
                   ease: [0.16, 1, 0.3, 1], // Super smooth custom easing
                 }}
-                className={`absolute w-[260px] h-[340px] sm:w-[320px] sm:h-[420px] md:w-[400px] md:h-[520px] rounded-[2rem] overflow-hidden cursor-pointer bg-white ${isActive ? 'ring-4 ring-brand-blue/40 shadow-[0_30px_60px_rgba(0,0,0,0.3)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'}`}
+                className={`absolute w-[260px] h-[340px] sm:w-[320px] sm:h-[420px] md:w-[400px] md:h-[520px] rounded-[2rem] overflow-hidden cursor-pointer bg-white/80 backdrop-blur-sm border border-white/50 ${isActive ? 'ring-4 ring-brand-blue/40 shadow-[0_30px_60px_rgba(0,0,0,0.3)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'}`}
                 onClick={() => isActive ? setSelectedImage(index) : setCurrentIndex(index)}
                 style={{ transformOrigin: "center center" }}
               >
