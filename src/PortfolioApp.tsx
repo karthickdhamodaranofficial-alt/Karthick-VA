@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useSpring, useInView } from "motion/react";
+import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from "motion/react";
 import { 
   CheckCircle, 
   Mail, 
@@ -28,6 +28,7 @@ import {
   CheckCircle2,
   TrendingUp,
   ChevronRight,
+  ChevronLeft,
   Play,
   Award,
   Users,
@@ -892,6 +893,226 @@ const Contact = () => {
   );
 };
 
+const Personal = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const images = [
+    {
+      src: "https://drive.google.com/thumbnail?id=19-8v-yMvbd7DnEG372wjfn2GZm91sBsO&sz=w800",
+      title: "By \"Terzaghi Institute\" (\"Anna University\")",
+      location: "2024-2025",
+      desc: "A moment of inspiration captured in time. Exploring new concepts and pushing the boundaries of what's possible in design."
+    },
+    {
+      src: "https://drive.google.com/thumbnail?id=1wwKIUzOcSauMwVCNJ5pIgp2bq2W9Iffs&sz=w800",
+      title: "At \"Gen AI.Connect\"",
+      location: "2024",
+      desc: "Every great project starts with a single step. This represents the ongoing journey of learning and evolving as a creator."
+    },
+    {
+      src: "https://drive.google.com/thumbnail?id=1a4a3IQj8RU2K_wQa-MzrEqYDezh5iVPF&sz=w800",
+      title: "At \"AIMTN & AICSCC\" (\"Anna Institute of Management, All India Civil Service Coaching Centre\")",
+      location: "2022-2025",
+      desc: "Finding the perfect balance between aesthetics and functionality. It's all about creating experiences that feel just right."
+    },
+    {
+      src: "https://drive.google.com/thumbnail?id=1OPNzB46i1B4L2RQ_iF3AEaM1BAZchjMx&sz=w800",
+      title: "During my undergraduate studies at \"Thiruthangal Nadar College\", I received the \"Chief Guest Award\" from the Head of the Computer Science Department.",
+      location: "2025",
+      desc: "Sometimes the best ideas come from stepping back and looking at things from a completely different perspective."
+    },
+    {
+      src: "https://drive.google.com/thumbnail?id=1sTeVKy82LAc18ScbR4acKIjxQ-MkS2cV&sz=w800",
+      title: "At \"IconXT\"",
+      location: "2024-2025",
+      desc: "Experimenting with how different hues and lighting can completely change the mood and message of a piece."
+    },
+    {
+      src: "https://drive.google.com/thumbnail?id=1Yo-fR1LVVKlUePlBOKMBOb2jfAUzv69F&sz=w800",
+      title: "At \"AIMTN\" (\"Anna Institute of Management\")",
+      location: "2022-2025",
+      desc: "That satisfying moment when all the pieces come together and the final vision is finally realized."
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  useEffect(() => {
+    if (selectedImage !== null || isHovered) return;
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [currentIndex, selectedImage, isHovered]);
+
+  const getOffset = (index: number) => {
+    const total = images.length;
+    let offset = index - currentIndex;
+    if (offset > Math.floor(total / 2)) {
+      offset -= total;
+    } else if (offset < -Math.floor(total / 2)) {
+      offset += total;
+    }
+    return offset;
+  };
+
+  return (
+    <section id="personal" className="py-24 bg-gradient-to-b from-brand-light to-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-12 text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <span className="text-brand-blue font-bold tracking-wider uppercase text-sm mb-4 block">Personalization</span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6">A Personal Touch</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Beyond the professional work, here's a glimpse into my personal creative journey and inspirations.
+          </p>
+        </motion.div>
+      </div>
+
+      <div 
+        className="relative max-w-[1400px] mx-auto px-4 sm:px-6 h-[450px] md:h-[600px] flex items-center justify-center"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* Left Arrow */}
+        <button 
+          onClick={prevSlide} 
+          className="absolute left-4 sm:left-12 z-40 bg-white/80 backdrop-blur-md p-4 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-brand-blue hover:text-white hover:scale-110 hover:shadow-brand-blue/30 transition-all duration-300 border border-white/20"
+          aria-label="Previous image"
+        >
+          <ChevronLeft size={28} />
+        </button>
+
+        {/* Carousel */}
+        <div className="relative w-full h-full flex items-center justify-center [perspective:1200px] [transform-style:preserve-3d]">
+          {images.map((img, index) => {
+            const offset = getOffset(index);
+            const absOffset = Math.abs(offset);
+            const isActive = offset === 0;
+            
+            // Calculate smooth transforms based on offset
+            const xOffset = windowWidth < 768 ? 120 : 220;
+            const x = offset * xOffset;
+            const z = -absOffset * 150;
+            const rotateY = offset * -20;
+            const scale = 1 - absOffset * 0.15;
+            const opacity = absOffset > 2 ? 0 : 1 - absOffset * 0.3;
+            const zIndex = 20 - absOffset;
+
+            return (
+              <motion.div
+                key={index}
+                layoutId={`personal-img-${index}`}
+                animate={{
+                  x,
+                  z,
+                  rotateY,
+                  scale,
+                  opacity,
+                  zIndex,
+                }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.16, 1, 0.3, 1], // Super smooth custom easing
+                }}
+                className={`absolute w-[260px] h-[340px] sm:w-[320px] sm:h-[420px] md:w-[400px] md:h-[520px] rounded-[2rem] overflow-hidden cursor-pointer bg-white ${isActive ? 'ring-4 ring-brand-blue/40 shadow-[0_30px_60px_rgba(0,0,0,0.3)]' : 'shadow-[0_10px_30px_rgba(0,0,0,0.1)]'}`}
+                onClick={() => isActive ? setSelectedImage(index) : setCurrentIndex(index)}
+                style={{ transformOrigin: "center center" }}
+              >
+                <div className="w-full h-full relative group p-4 sm:p-6 flex flex-col">
+                  <div className="flex-1 relative w-full overflow-hidden rounded-xl">
+                    <img 
+                      src={img.src} 
+                      alt={img.title} 
+                      className="w-full h-full object-contain transition-transform duration-[1.5s] ease-out group-hover:scale-105" 
+                      referrerPolicy="no-referrer" 
+                    />
+                  </div>
+                  
+                  <div className="mt-4 text-center shrink-0 px-2">
+                    <h3 className="text-lg font-bold text-brand-dark leading-tight mb-1">{img.title}</h3>
+                    <p className="text-sm text-gray-500">{img.location}</p>
+                  </div>
+                  
+                  {/* Overlay for inactive slides */}
+                  {!isActive && (
+                    <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px] transition-opacity duration-500 rounded-[2rem]" />
+                  )}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Right Arrow */}
+        <button 
+          onClick={nextSlide} 
+          className="absolute right-4 sm:right-12 z-40 bg-white/80 backdrop-blur-md p-4 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-brand-blue hover:text-white hover:scale-110 hover:shadow-brand-blue/30 transition-all duration-300 border border-white/20"
+          aria-label="Next image"
+        >
+          <ChevronRight size={28} />
+        </button>
+      </div>
+
+      {/* Details Modal */}
+      <AnimatePresence>
+        {selectedImage !== null && (
+          <motion.div
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 sm:p-6 md:p-10"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 sm:top-10 sm:right-10 text-white hover:text-brand-blue transition-all duration-500 bg-white/10 hover:bg-white/30 p-4 rounded-full z-50 hover:rotate-90"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X size={28} />
+            </button>
+            
+            <motion.div
+              layoutId={`personal-img-${selectedImage}`}
+              className="relative max-w-5xl w-full h-[80vh] bg-transparent flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.img 
+                src={images[selectedImage].src} 
+                alt={images[selectedImage].title} 
+                className="max-w-full max-h-full object-contain drop-shadow-2xl rounded-2xl"
+                referrerPolicy="no-referrer"
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="py-24 px-6 bg-brand-dark text-white relative overflow-hidden">
@@ -998,6 +1219,7 @@ export default function PortfolioApp() {
         <WhyChooseMe />
         <Pricing />
         <Contact />
+        <Personal />
       </main>
       <Footer />
 
