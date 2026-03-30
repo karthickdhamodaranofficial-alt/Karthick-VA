@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring, useInView, AnimatePresence } from "motion/react";
 import { 
+  Scissors,
+  Globe,
+  Layers,
+  Target,
+  Layout,
   CheckCircle, 
   Mail, 
   Calendar, 
@@ -143,8 +148,10 @@ const Navbar = () => {
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
     { name: "Testimonials", href: "#testimonials" },
+    { name: "Tools", href: "#software" },
     { name: "Pricing", href: "#pricing" },
     { name: "Contact", href: "#contact" },
+    { name: "Highlights", href: "#personal" },
   ];
 
   return (
@@ -547,7 +554,7 @@ const Services = () => {
 
 const Testimonials = () => {
   const testimonials = [
-    { name: "Arjun and Guru", role: "Founders, SOI – Stories Of India Podcast", text: "Karthick helped us grow on social media. We worked together as a great team, and we really liked his work and character.", rating: 5 },
+    { name: "Arjun and Guru", role: "Founders, SOI – Stories Of India Podcast", text: "We have known Karthik since the early days of our company, and he has been an invaluable partner throughout our journey. His dedication and strong work ethic truly stand out. While we faced a few initial challenges, Karthik and his team were quick to step in and resolve them efficiently. What sets him apart is his willingness to support us at every stage. He has never turned down a request and has consistently gone the extra mile to help us navigate various challenges. Working with him has been a great experience, and we look forward to continuing this partnership in the future.", rating: 5 },
     { name: "Sulochana", role: "Head Director, AIMTN – Anna Institute of Management", text: "Karthick supported us for three years during his undergraduate college period. He regularly came on Saturdays and Sundays to handle the camera, manage live presentations, and edit those live sessions into videos, shorts, and other content. During long college holidays and after exams, he would come and work full-day as well. He has been with us since the beginning of the project, and his work has always been excellent. We truly appreciated his dedication and character.", rating: 5 },
     { name: "Saravanan", role: "EX HEAD VIDEO EDITOR, AICSCC TN - ALL INDIA CIVIL SERVICES COACHING CENTRE", text: "Karthick supported us with video editing, camera handling, and graphic design for the past two years. We truly appreciated his dedication and good character.", rating: 5 }
   ];
@@ -677,6 +684,154 @@ const WhyChooseMe = () => {
           </motion.div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] border-2 border-brand-blue/10 rounded-full -z-0 animate-[spin_20s_linear_infinite]"></div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-brand-blue/5 rounded-full -z-0 animate-[spin_15s_linear_infinite_reverse]"></div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const SoftwareSection = () => {
+  const softwares = [
+    // Line 1: Google Suite
+    { name: "Gmail", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg", level: "Intermediate" },
+    { name: "Calendar", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg", level: "Intermediate" },
+    { name: "Meet", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Google_Meet_icon_%282020%29.svg", level: "Intermediate" },
+    { name: "Drive", logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg", level: "Intermediate" },
+    { name: "Sheets", logo: "https://static.vecteezy.com/system/resources/previews/042/954/165/non_2x/google-sheets-logo-icon-free-vector.jpg", level: "Intermediate", scale: 1.4 },
+    { name: "Docs", logo: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Docs.width-500.format-webp.webp", level: "Intermediate" },
+    
+    // Line 2: AI Ecosystem
+    { name: "ChatGPT", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s", level: "Intermediate" },
+    { name: "Gemini", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/gemini.webp", level: "Intermediate" },
+    { name: "Claude", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/claude.webp", level: "Intermediate" },
+    { name: "Perplexity", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/perplexity.webp", level: "Intermediate" },
+    { name: "Copilot", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/copilot.webp", level: "Intermediate" },
+    { name: "Google AI Studio", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/aistudio.webp", level: "Intermediate" },
+
+    // Line 3: Creative & Media
+    { name: "Premiere Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg", level: "Intermediate" },
+    { name: "Capcut", logo: "https://fahimai.com/wp-content/uploads/2024/05/2-3.png", level: "Intermediate" },
+    { name: "Lightroom", logo: "https://static.vecteezy.com/system/resources/thumbnails/046/437/265/small_2x/adobe-lightroom-icon-free-png.png", level: "Intermediate", scale: 1.4 },
+    { name: "Canva", logo: "https://play-lh.googleusercontent.com/3aWGqSf3T_p3F6wc8FFvcZcnjWlxpZdNaqFVEvPwQ1gTOPkVoZwq6cYvfK9eCkwCXbRY", level: "Intermediate" },
+    { name: "Veo 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy_pOOihR6S0QSSMzwx8-fEdeB8Srb_k1dPA&s", level: "Intermediate" },
+    { name: "Nano Banana", logo: "https://nanobanana-pro.studio/icon.png", level: "Intermediate" },
+
+    // Line 4: Development & Infrastructure
+    { name: "VS Code", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg", level: "Intermediate" },
+    { name: "Bolt", logo: "https://cdn-1.webcatalog.io/catalog/bolt-new/bolt-new-icon-filled-256.png?v=1730692903154", level: "Intermediate", scale: 1.4 },
+    { name: "Lovable", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTysfvFgHMVChk-7glLKWvdIJLLoA2aau0m1g&s", level: "Intermediate" },
+    { name: "Firebase", logo: "https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png", level: "Intermediate" },
+    { name: "Netlify", logo: "https://logosandtypes.com/wp-content/uploads/2023/03/Netlify.png", level: "Intermediate", scale: 1.4 },
+    { name: "Zapier", logo: "https://cdn.worldvectorlogo.com/logos/zapier-2.svg", level: "Beginner" },
+
+    // Line 5: Social & Operations
+    { name: "YouTube", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png", level: "Intermediate" },
+    { name: "Instagram", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg", level: "Intermediate" },
+    { name: "WhatsApp", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", level: "Intermediate" },
+    { name: "Slack", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg", level: "Beginner" },
+    { name: "Notion", logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", level: "Beginner" },
+    { name: "GHL", logo: "https://ghlreview.com/wp-content/uploads/2021/07/ghl-logo.png", level: "Beginner" }
+  ];
+
+  return (
+    <section id="software" className="py-40 px-6 bg-[#FAFAFA] relative overflow-hidden">
+      {/* Background Decor with Parallax-like feel */}
+      <motion.div 
+        initial={{ y: 0 }}
+        whileInView={{ y: -50 }}
+        transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+        className="absolute inset-0 z-0 opacity-[0.04]" 
+        style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
+      />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-32">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-6xl md:text-8xl font-serif font-bold text-brand-dark leading-tight"
+          >
+            The Tools Behind <br />
+            <motion.span 
+              animate={{ color: ['#0066FF', '#0044BB', '#0066FF'] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="italic relative"
+            >
+              The Magic
+              <motion.div 
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="absolute -bottom-2 left-0 h-1 bg-brand-blue/20 rounded-full"
+              />
+            </motion.span>
+          </motion.h2>
+        </div>
+
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-y-16 gap-x-8 md:gap-x-12 max-w-6xl mx-auto">
+          {softwares.map((sw, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ 
+                duration: 0.5, 
+                delay: i * 0.05,
+                type: "spring",
+                stiffness: 260,
+                damping: 20
+              }}
+              className="flex flex-col items-center justify-center relative group"
+            >
+              {/* Interactive Container */}
+              <motion.div
+                whileHover={{ y: -10 }}
+                style={{ scale: (sw as any).scale || 1 }}
+                className="relative z-10 transition-all duration-300"
+              >
+                {/* Background Growth Effect */}
+                <div className="absolute inset-0 bg-brand-blue rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 scale-0 group-hover:scale-110 blur-xl" />
+                
+                {/* Logo Wrapper */}
+                <div className="w-14 h-14 md:w-20 md:h-20 flex items-center justify-center p-3 rounded-2xl bg-white border border-gray-100 group-hover:border-brand-blue/20 transition-all duration-500 shadow-sm group-hover:shadow-2xl relative overflow-hidden">
+                  {/* Subtle Inner Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-50 opacity-100 group-hover:opacity-0 transition-opacity duration-500" />
+                  
+                  <img 
+                    src={sw.logo} 
+                    alt={sw.name} 
+                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500 relative z-10"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Label - Always visible but subtle */}
+              <div className="mt-4 opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-brand-dark">
+                  {sw.name}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Learning Commitment Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="mt-32 text-center"
+        >
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white border border-gray-100 shadow-sm">
+            <div className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
+            <p className="text-sm md:text-base text-brand-dark/60 font-medium">
+              I’m always open to learning any <span className="text-brand-blue font-bold italic">new software</span> required for the job.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -1217,6 +1372,7 @@ export default function PortfolioApp() {
         <Services />
         <Testimonials />
         <WhyChooseMe />
+        <SoftwareSection />
         <Pricing />
         <Contact />
         <Personal />
