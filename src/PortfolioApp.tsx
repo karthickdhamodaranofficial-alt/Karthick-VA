@@ -700,7 +700,16 @@ const SoftwareSection = () => {
     { name: "Sheets", logo: "https://static.vecteezy.com/system/resources/previews/042/954/165/non_2x/google-sheets-logo-icon-free-vector.jpg", level: "Intermediate", scale: 1.4 },
     { name: "Docs", logo: "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Docs.width-500.format-webp.webp", level: "Intermediate" },
     
-    // Line 2: AI Ecosystem
+    // Line 2: Development & Infrastructure (Vibecodes)
+    { name: "VS Code", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg", level: "Intermediate" },
+    { name: "GitHub", logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg", level: "Intermediate" },
+    { name: "Bolt", logo: "https://cdn-1.webcatalog.io/catalog/bolt-new/bolt-new-icon-filled-256.png?v=1730692903154", level: "Intermediate", scale: 1.4 },
+    { name: "Lovable", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTysfvFgHMVChk-7glLKWvdIJLLoA2aau0m1g&s", level: "Intermediate" },
+    { name: "Firebase", logo: "https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png", level: "Intermediate" },
+    { name: "Netlify", logo: "https://logosandtypes.com/wp-content/uploads/2023/03/Netlify.png", level: "Intermediate", scale: 1.4 },
+    { name: "Wix", logo: "https://upload.wikimedia.org/wikipedia/commons/7/76/Wix.com_website_logo.svg", level: "Intermediate" },
+
+    // Line 3: AI Ecosystem
     { name: "ChatGPT", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s", level: "Intermediate" },
     { name: "Gemini", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/gemini.webp", level: "Intermediate" },
     { name: "Claude", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/claude.webp", level: "Intermediate" },
@@ -708,29 +717,26 @@ const SoftwareSection = () => {
     { name: "Copilot", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/master/packages/static-avatar/avatars/copilot.webp", level: "Intermediate" },
     { name: "Google AI Studio", logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-avatar/avatars/aistudio.webp", level: "Intermediate" },
 
-    // Line 3: Creative & Media
+    // Line 4: Creative & Media (Editing)
     { name: "Premiere Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg", level: "Intermediate" },
     { name: "Capcut", logo: "https://fahimai.com/wp-content/uploads/2024/05/2-3.png", level: "Intermediate" },
     { name: "Lightroom", logo: "https://static.vecteezy.com/system/resources/thumbnails/046/437/265/small_2x/adobe-lightroom-icon-free-png.png", level: "Intermediate", scale: 1.4 },
     { name: "Canva", logo: "https://play-lh.googleusercontent.com/3aWGqSf3T_p3F6wc8FFvcZcnjWlxpZdNaqFVEvPwQ1gTOPkVoZwq6cYvfK9eCkwCXbRY", level: "Intermediate" },
+    { name: "Figma", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg", level: "Intermediate" },
     { name: "Veo 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy_pOOihR6S0QSSMzwx8-fEdeB8Srb_k1dPA&s", level: "Intermediate" },
     { name: "Nano Banana", logo: "https://nanobanana-pro.studio/icon.png", level: "Intermediate" },
-
-    // Line 4: Development & Infrastructure
-    { name: "VS Code", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg", level: "Intermediate" },
-    { name: "Bolt", logo: "https://cdn-1.webcatalog.io/catalog/bolt-new/bolt-new-icon-filled-256.png?v=1730692903154", level: "Intermediate", scale: 1.4 },
-    { name: "Lovable", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTysfvFgHMVChk-7glLKWvdIJLLoA2aau0m1g&s", level: "Intermediate" },
-    { name: "Firebase", logo: "https://firebase.google.com/static/images/brand-guidelines/logo-logomark.png", level: "Intermediate" },
-    { name: "Netlify", logo: "https://logosandtypes.com/wp-content/uploads/2023/03/Netlify.png", level: "Intermediate", scale: 1.4 },
-    { name: "Zapier", logo: "https://cdn.worldvectorlogo.com/logos/zapier-2.svg", level: "Beginner" },
 
     // Line 5: Social & Operations
     { name: "YouTube", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png", level: "Intermediate" },
     { name: "Instagram", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg", level: "Intermediate" },
     { name: "WhatsApp", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", level: "Intermediate" },
+    { name: "LinkedIn", logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png", level: "Intermediate" },
+    { name: "Facebook", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg", level: "Intermediate" },
+    { name: "Zoom", logo: "https://img.freepik.com/premium-vector/square-zoom-logo-isolated-white-background_469489-910.jpg?semt=ais_incoming&w=740&q=80", level: "Intermediate" },
     { name: "Slack", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg", level: "Beginner" },
     { name: "Notion", logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png", level: "Beginner" },
-    { name: "GHL", logo: "https://ghlreview.com/wp-content/uploads/2021/07/ghl-logo.png", level: "Beginner" }
+    { name: "GHL", logo: "https://ghlreview.com/wp-content/uploads/2021/07/ghl-logo.png", level: "Beginner" },
+    { name: "Zapier", logo: "https://cdn.worldvectorlogo.com/logos/zapier-2.svg", level: "Beginner" }
   ];
 
   return (
