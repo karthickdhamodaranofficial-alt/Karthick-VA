@@ -1003,7 +1003,7 @@ const Contact = () => {
             <div className="flex gap-6">
               {[
                 { icon: <Linkedin />, href: "https://www.linkedin.com/in/karthick-dhamodaran/" },
-                { icon: <Instagram />, href: "https://www.instagram.com/karthick_d_offficial/" }
+                { icon: <Instagram />, href: "https://www.instagram.com/karthick_dhamodaran/" }
               ].map((social, i) => (
                 <motion.a 
                   key={i}
@@ -1314,7 +1314,7 @@ const Footer = () => {
               <ul className="space-y-4">
                 {[
                   { label: "LinkedIn", href: "https://www.linkedin.com/in/karthick-dhamodaran/" },
-                  { label: "Instagram", href: "https://www.instagram.com/karthick_d_offficial/" }
+                  { label: "Instagram", href: "https://www.instagram.com/karthick_dhamodaran/" }
                 ].map((social, i) => (
                   <li key={i}>
                     <motion.a
